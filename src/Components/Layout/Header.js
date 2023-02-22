@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import meals from "../../Assets/meals.jpg"
+import meals from "../../Assets/meals.jpeg"
 import classes from "./Header.module.css"
 
 const Header = (props) => {
