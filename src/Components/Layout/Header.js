@@ -5,11 +5,11 @@ import classes from "./Header.module.css"
 const Header = (props) => {
     return (
         <Fragment>
-            <header>
+            <header className={classes.header}>
                 <h1>Tasty Treats</h1>
                 <button>Cart</button>
             </header>
-            <div>
+            <div className={classes["main-image"]}>
                 <img src={meals} alt="Table full of treats" />
             </div>
         </Fragment>
