@@ -1,3 +1,5 @@
+import classes from "./AvailableMeals.module.css"
+
 
 const DUMMY_MEALS = [
       {
@@ -35,7 +37,7 @@ const AvailableMeals = () => {
     })
 
     return (
-        <section>
+        <section className={classes.meals}>
             <ul>
                {mealsList}
             </ul>
