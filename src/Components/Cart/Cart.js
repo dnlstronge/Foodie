@@ -1,9 +1,9 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 
-const Cart = ({modalState, clickHandle }) => {
-  const [cartModal, setCartModal] = useState(false)
+const Cart = (props) => {
+
 
   const cartItems = (
     <ul className={classes['cart-items']}>
@@ -17,7 +17,7 @@ const Cart = ({modalState, clickHandle }) => {
 
   return (
     <Fragment>
-    {modalState &&
+   
     <Modal>
       {cartItems}
       <div className={classes.total}>
@@ -25,10 +25,10 @@ const Cart = ({modalState, clickHandle }) => {
         <span>35.62</span>
       </div>
       <div className={classes.actions}>
-        <button onClick= {clickHandle} className={classes['button--alt']}>Close</button>
+        <button onClick={props.onClose} className={classes['button--alt']}>Close</button>
         <button className={classes.button}>Order</button>
       </div>
-    </Modal>}
+    </Modal>
     </Fragment>
   );
 };

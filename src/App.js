@@ -5,16 +5,19 @@ import Meals from "./Components/Meals/Meals";
 
 
 function App() {
+  const [showCart, setShowCart] = useState(false)
 
-  const [modal, setModal] = useState(false)
-  const handleModal = () => {
-    modal ? setModal(false) : setModal(true)
+  const showCartHandler = () => {
+    setShowCart(true)
   }
-
+  const hideCartHandler = () => {
+    setShowCart(false)
+  }
   return (
     <Fragment>
-    <Cart modalState={modal} clickHandle={handleModal}/>
-      <Header clickHandle={handleModal}/>
+    {showCart && 
+    <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
         <main>
           <Meals />
         </main>

@@ -3,7 +3,7 @@ import meals from "../../Assets/meals.jpeg"
 import classes from "./Header.module.css"
 import CartButton from "./CartButton"
 
-const Header = ({clickHandle}) => {
+const Header = ({ onShowCart }) => {
 
     
       
@@ -11,7 +11,7 @@ const Header = ({clickHandle}) => {
         <Fragment>
             <header className={classes.header}>
                 <h1>Tasty Treats</h1>
-                <CartButton clickHandler={clickHandle}/>
+                <CartButton onClick={onShowCart}/>
             </header>
             <div className={classes["main-image"]}>
                 <img src={meals} alt="Table full of treats" />
