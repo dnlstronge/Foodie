@@ -7,12 +7,14 @@ import Meals from "./Components/Meals/Meals";
 function App() {
 
   const [modal, setModal] = useState(false)
-
+  const handleModal = () => {
+    modal ? setModal(false) : setModal(true)
+  }
 
   return (
     <Fragment>
-    <Cart modalState={modal} setModalState={setModal}/>
-      <Header modalState={modal} setModalState={setModal}/>
+    <Cart modalState={modal} clickHandle={handleModal}/>
+      <Header clickHandle={handleModal}/>
         <main>
           <Meals />
         </main>

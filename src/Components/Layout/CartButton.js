@@ -2,7 +2,7 @@ import React, { Fragment }  from "react"
 import classes from "./CartButton.module.css"
 import CartIcon from "../Cart/CartIcon"
 
-const CartButton = ({clickHandler}) => {
+const CartButton = ({ clickHandler }) => {
     return (
         <Fragment>
             <button onClick={clickHandler} className={classes.button}>
