@@ -1,7 +1,10 @@
+import { Fragment, useState } from 'react';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 
-const Cart = (props) => {
+const Cart = ({ modalState, setModalstate }) => {
+  const [cartModal, setCartModal] = useState(false)
+
   const cartItems = (
     <ul className={classes['cart-items']}>
       {[{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item) => (
@@ -10,7 +13,13 @@ const Cart = (props) => {
     </ul>
   );
 
+  const modalHandler = (e) => {
+    cartModal ? setCartModal(false) : setCartModal(true)
+  }
+
   return (
+    <Fragment>
+    {modalState &&
     <Modal>
       {cartItems}
       <div className={classes.total}>
@@ -21,7 +30,8 @@ const Cart = (props) => {
         <button className={classes['button--alt']}>Close</button>
         <button className={classes.button}>Order</button>
       </div>
-    </Modal>
+    </Modal>}
+    </Fragment>
   );
 };
 

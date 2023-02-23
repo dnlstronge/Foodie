@@ -2,10 +2,10 @@ import React, { Fragment }  from "react"
 import classes from "./CartButton.module.css"
 import CartIcon from "../Cart/CartIcon"
 
-const CartButton = (props) => {
+const CartButton = ({clickHandler}) => {
     return (
         <Fragment>
-            <button className={classes.button}>
+            <button onClick={clickHandler} className={classes.button}>
                 <span className={classes.icon}>
                     <CartIcon/>
                 </span>
