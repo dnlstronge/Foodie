@@ -14,14 +14,14 @@ function App() {
     setShowCart(false)
   }
   return (
-    <Fragment>
+    <CartProvider>
     {showCart && 
     <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
         <main>
           <Meals />
         </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 
