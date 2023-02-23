@@ -18,7 +18,7 @@ const Cart = (props) => {
   return (
     <Fragment>
    
-    <Modal>
+    <Modal onClick={props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
