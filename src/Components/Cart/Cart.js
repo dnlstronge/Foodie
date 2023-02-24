@@ -1,7 +1,8 @@
 import { Fragment, useContext } from 'react';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
-import CartContext from "../../Store/CartContext"
+import CartContext from "../../Store/CartContext";
+import CartItem from './CartItem';
 
 const Cart = (props) => {
   const cartCTX = useContext(CartContext)
@@ -9,10 +10,18 @@ const Cart = (props) => {
   const totalAmount = ` £${cartCTX.totalAmount.toFixed(2)}`
   const hasItems = cartCTX.items.length > 0
 
+  const cartItemRemoveHandler = (id) => {}
+  const cartitemAddHandler = (item) => {}
+
   const cartItems = (
     <ul className={classes['cart-items']}>
       {cartCTX.items.map((item) => (
-        <li>{item.name}</li>
+        <CartItem
+         key={item.id}
+         name={item.name}
+         amount={item.price}
+         price={item.price}
+         />
       ))}
     </ul>
   );
