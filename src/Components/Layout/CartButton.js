@@ -6,14 +6,31 @@ import CartContext from "../../Store/CartContext"
 const CartButton = (props) => {
     const [btnHighlight, setBtnHighlight] = useState(false)
     const cartCTX = useContext(CartContext)
+    const { items } = cartCTX
 
-    const numberOfCartItems = cartCTX.items.reduce((current, item) => {
+    const numberOfCartItems = items.reduce((current, item) => {
         return current + item.amount
     }, 0)
 
-    const btnClasses = `${classes.button} ${classes.bump}`
+    
 
-    useEffect(() => {}, [])
+    const btnClasses = `${classes.button} ${btnHighlight ? classes.bump : "" }`
+
+    useEffect(() => {
+        if(items.length === 0) {
+            return
+        }
+
+        setBtnHighlight(true)
+
+        const timer = setTimeout(() => {
+            setBtnHighlight(false)
+        }, 300)
+
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [items])
 
     return (
         <Fragment>
