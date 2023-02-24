@@ -6,6 +6,11 @@ const MealItemForm = (props) => {
     const amountInputRef = useRef()
     const submitHandler = (e) => {
         e.preventDefault()
+        const enteredAmount = amountInputRef.current.value
+        const enteredAmountNumber = +enteredAmount
+        if(enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5) {
+            return
+        }
     }
 
     return (
