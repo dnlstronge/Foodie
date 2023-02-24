@@ -13,6 +13,7 @@ const MealItemForm = (props) => {
             setAmountIsValid(false)
             return
         }
+        props.onAddToCart(enteredAmountNumber)
     }
 
     return (
@@ -28,6 +29,7 @@ const MealItemForm = (props) => {
                 defaultValue: "1"
             }}/>
             <button>+ Add</button>
+            {!amountIsValid && <p>Error: please enter a valid amount (1-5)</p>}
         </form>
     )
 };
