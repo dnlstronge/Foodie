@@ -1,49 +1,49 @@
-import { Fragment, useContext } from 'react';
+import { useContext } from 'react';
+
 import Modal from '../UI/Modal';
+import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from "../../Store/CartContext";
-import CartItem from './CartItem';
 
 const Cart = (props) => {
-  const cartCTX = useContext(CartContext)
+  const cartCtx = useContext(CartContext);
 
-  const totalAmount = ` £${cartCTX.totalAmount.toFixed(2)}`
-  const hasItems = cartCTX.items.length > 0
+  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {}
-  const cartitemAddHandler = (item) => {}
+  const cartItemRemoveHandler = (id) => {};
+
+  const cartItemAddHandler = (item) => {};
 
   const cartItems = (
     <ul className={classes['cart-items']}>
-      {cartCTX.items.map((item) => (
+      {cartCtx.items.map((item) => (
         <CartItem
-         key={item.id}
-         name={item.name}
-         amount={item.price}
-         price={item.price}
-         />
+          key={item.id}
+          name={item.name}
+          amount={item.amount}
+          price={item.price}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
       ))}
     </ul>
   );
 
-  
-
   return (
-    <Fragment>
-   
-    <Modal onClick={props.onClose}>
+    <Modal onClose={props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>{totalAmount}</span>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onClose} className={classes['button--alt']}>Close</button>
-        {hasItems && 
-        <button className={classes.button}>Order</button>}
+        <button className={classes['button--alt']} onClick={props.onClose}>
+          Close
+        </button>
+        {hasItems && <button className={classes.button}>Order</button>}
       </div>
     </Modal>
-    </Fragment>
   );
 };
 
