@@ -1,13 +1,14 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
+import CartContext from "../../Store/CartContext"
 
 const Cart = (props) => {
-
+  const cartCTX = useContext(CartContext)
 
   const cartItems = (
     <ul className={classes['cart-items']}>
-      {[{ id: 'c1', name: 'Sushi', amount: 2, price: 12.99 }].map((item) => (
+      {cartCTX.map((item) => (
         <li>{item.name}</li>
       ))}
     </ul>
