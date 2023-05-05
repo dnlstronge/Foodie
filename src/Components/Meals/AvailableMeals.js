@@ -30,8 +30,10 @@ const DUMMY_MEALS = [
       },
     ];
 
-const AvailableMeals = () => {
-    const mealsList = DUMMY_MEALS.map((meal) => {
+const AvailableMeals = async() => {
+
+
+    const mealsList = {}.map((meal) => {
         return (
                <MealItem 
                   key={meal.id}
