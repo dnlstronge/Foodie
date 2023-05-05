@@ -4,32 +4,6 @@ import Card from "../UI/Card";
 import { useEffect, useState } from "react"
 
 
-const DUMMY_MEALS = [
-      {
-        id: 'm1',
-        name: 'Sushi Bowl',
-        description: 'Finest fresh fish and vegetables',
-        price: 22.99,
-      },
-      {
-        id: 'm2',
-        name: 'Chickpea and Lentil Dahl',
-        description: 'Spicy and nutritious',
-        price: 16.5,
-      },
-      {
-        id: 'm3',
-        name: 'BBQ Burger',
-        description: 'An American meat beast',
-        price: 12.99,
-      },
-      {
-        id: 'm4',
-        name: 'Green Olive Salad',
-        description: 'Healthy...and green...',
-        price: 18.99,
-      },
-    ];
 
 const AvailableMeals = async() => {
 
@@ -38,8 +12,20 @@ const [mealsData, setMealsData] = useState([])
 
 useEffect(() => {
   const fetchMeals = async() => {
-   await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+   const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+   const responseData = await res.json()
+   const loadedData = []
+   for (const key in responseData) {
+    loadedData.push({
+      id: key,
+      name: responseData[key].name,
+      description: responseData[key].description,
+      price: responseData[key].price
+
+    })
+   }
   }
+  setMealsData(fetchMeals())
 }, [])
 
     const mealsList = mealsData.map((meal) => {
