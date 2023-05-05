@@ -1,6 +1,7 @@
 import classes from "./AvailableMeals.module.css"
 import MealItem from "./MealItem/MealItem";
 import Card from "../UI/Card";
+import { useEffect, useState } from "react"
 
 
 const DUMMY_MEALS = [
@@ -32,6 +33,12 @@ const DUMMY_MEALS = [
 
 const AvailableMeals = async() => {
 
+/*get data */
+const [data, setData] = useState([])
+
+useEffect(() => {
+  const response = fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+}, [])
 
     const mealsList = {}.map((meal) => {
         return (
