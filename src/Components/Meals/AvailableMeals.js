@@ -34,13 +34,15 @@ const DUMMY_MEALS = [
 const AvailableMeals = async() => {
 
 /*get data */
-const [data, setData] = useState([])
+const [mealsData, setMealsData] = useState([])
 
 useEffect(() => {
-  const response = fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+  const fetchMeals = async() => {
+   await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+  }
 }, [])
 
-    const mealsList = {}.map((meal) => {
+    const mealsList = mealsData.map((meal) => {
         return (
                <MealItem 
                   key={meal.id}
