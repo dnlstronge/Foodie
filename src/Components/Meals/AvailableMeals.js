@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 
 
-const AvailableMeals = async() => {
+const AvailableMeals = () => {
 
 /*get data */
 const [mealsData, setMealsData] = useState([])
@@ -24,8 +24,9 @@ useEffect(() => {
 
     })
    }
+   setMealsData(loadedData)
   }
-  setMealsData(fetchMeals())
+ fetchMeals()
 }, [])
 
     const mealsList = mealsData.map((meal) => {
