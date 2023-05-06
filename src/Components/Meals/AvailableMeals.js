@@ -37,7 +37,8 @@ useEffect(() => {
   try {
     fetchMeals()
   } catch (error) {
-    
+    setIsLoading(false)
+    setIsError(error.message)
   }
  
 }, [])
