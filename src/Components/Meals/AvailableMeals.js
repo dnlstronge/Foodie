@@ -34,6 +34,15 @@ useEffect(() => {
  fetchMeals()
 }, [])
 
+  if(isLoading) {
+    return (
+      <section className={classes.mealsLoading}>
+        <p>loading...</p>
+      </section>
+    )
+  }
+
+
     const mealsList = mealsData.map((meal) => {
         return (
                <MealItem 
