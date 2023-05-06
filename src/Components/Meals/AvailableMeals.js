@@ -50,6 +50,13 @@ useEffect(() => {
       </section>
     )
   }
+  if(isError) {
+    return (
+      <section className={classes.mealsError}>
+        <p>{isError}</p>
+      </section>
+    )
+  }
 
 
     const mealsList = mealsData.map((meal) => {
