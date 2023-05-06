@@ -17,6 +17,9 @@ useEffect(() => {
   const fetchMeals = async() => {
     setIsLoading(true)
    const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals")
+   if(!res.ok) {
+    throw new Error("Something went wrong")
+   }
    const responseData = await res.json()
    const loadedData = []
    for (const key in responseData) {
@@ -31,7 +34,12 @@ useEffect(() => {
    setMealsData(loadedData)
    setIsLoading(false)
   }
- fetchMeals()
+  try {
+    fetchMeals()
+  } catch (error) {
+    
+  }
+ 
 }, [])
 
   if(isLoading) {
