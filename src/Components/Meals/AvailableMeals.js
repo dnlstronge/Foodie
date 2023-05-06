@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 
 const AvailableMeals = () => {
 /* Loading and Error State */
-const [isLoading, setIsLoading] = useState(false)
+const [isLoading, setIsLoading] = useState(true)
 
 /* Data */
 const [mealsData, setMealsData] = useState([])
@@ -29,6 +29,7 @@ useEffect(() => {
     })
    }
    setMealsData(loadedData)
+   setIsLoading(false)
   }
  fetchMeals()
 }, [])
