@@ -16,7 +16,7 @@ const [mealsData, setMealsData] = useState([])
 useEffect(() => {
   const fetchMeals = async() => {
     setIsLoading(true)
-   const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals")
+   const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
    if(!res.ok) {
     throw new Error("Something went wrong")
    }
