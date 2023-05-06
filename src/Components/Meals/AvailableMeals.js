@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 const AvailableMeals = () => {
 /* Loading and Error State */
 const [isLoading, setIsLoading] = useState(true)
-
+const [isError, setIsError] = useState(null)
 /* Data */
 const [mealsData, setMealsData] = useState([])
 
@@ -16,7 +16,7 @@ const [mealsData, setMealsData] = useState([])
 useEffect(() => {
   const fetchMeals = async() => {
     setIsLoading(true)
-   const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals.json")
+   const res = await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/meals")
    const responseData = await res.json()
    const loadedData = []
    for (const key in responseData) {
