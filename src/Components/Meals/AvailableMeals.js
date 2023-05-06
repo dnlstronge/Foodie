@@ -34,12 +34,12 @@ useEffect(() => {
    setMealsData(loadedData)
    setIsLoading(false)
   }
-  try {
-    fetchMeals()
-  } catch (error) {
-    setIsLoading(false)
-    setIsError(error.message)
-  }
+  fetchMeals().then().catch(
+    (error) => {
+      setIsLoading(false)
+      setIsError(error.message)
+    }
+  )
  
 }, [])
 
