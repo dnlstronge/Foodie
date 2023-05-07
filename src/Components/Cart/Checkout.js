@@ -20,8 +20,9 @@ const Checkout = () => {
                 <label htmlFor="postcode">Postcode</label>
                 <input id="postcode" type="text" /> 
             </div>
+            <button type="button" className={classes.btn}Cancel></button>
             <button className={classes.btn}>Confirm</button>
-            <button className={classes.btn}Cancel></button>
+            
            
         </form>
     )
