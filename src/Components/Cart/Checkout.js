@@ -3,7 +3,7 @@ import classes from "./Checkout.module.css"
 
 const Checkout = (props) => {
     const confirmHandler = (e) => {
-
+        e.preventDefault()
     }
     
     return (
