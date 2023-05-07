@@ -21,6 +21,7 @@ const Checkout = () => {
                 <input id="postcode" type="text" /> 
             </div>
             <button className={classes.btn}>Confirm</button>
+            <button className={classes.btn}Cancel></button>
            
         </form>
     )
