@@ -1,7 +1,7 @@
 import react from "react";
 import classes from "./Checkout.module.css"
 
-const Checkout = () => {
+const Checkout = (props) => {
     return (
         <form>
             <div className={classes.control}>
@@ -20,7 +20,7 @@ const Checkout = () => {
                 <label htmlFor="postcode">Postcode</label>
                 <input id="postcode" type="text" /> 
             </div>
-            <butto onClick={props.onClose} type="button" className={classes.btn}Cancel></button>
+            <button onClick={props.onClose} type="button" className={classes.btn}>Cancel</button>
             <button className={classes.btn}>Confirm</button>
             
            
