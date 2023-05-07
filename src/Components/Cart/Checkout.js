@@ -2,6 +2,10 @@ import react from "react";
 import classes from "./Checkout.module.css"
 
 const Checkout = (props) => {
+    const confirmHandler = (e) => {
+
+    }
+    
     return (
         <form>
             <div className={classes.control}>
