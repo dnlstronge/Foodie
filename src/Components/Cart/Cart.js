@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react';
-
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
