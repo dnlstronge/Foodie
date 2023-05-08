@@ -12,7 +12,6 @@ const Cart = (props) => {
   const hasItems = cartCtx.items.length > 0;
   const [isCheckout, setIsCheckout] = useState(false)
 
-
   /* -Handlers- */
   const cartItemRemoveHandler = (id) => {
     cartCtx.removeItem(id)
@@ -60,7 +59,6 @@ const Cart = (props) => {
       <Checkout onClose={props.onClose} />}
       {!isCheckout && 
        modalActions}
-      
     </Modal>
   );
 };
