@@ -10,6 +10,10 @@ const Checkout = (props) => {
 
   const confirmHandler = (event) => {
     event.preventDefault();
+    const enteredName = nameInput.current.value 
+    const enteredStreet = streetInput.current.value
+    const enteredPostcode = postcodeInput.current.value 
+    const enteredCity = cityInput.current.value
   };
 
   return (
