@@ -1,7 +1,13 @@
+import { useRef } from 'react';
 import classes from './Checkout.module.css';
 
 const Checkout = (props) => {
-    
+    const nameInput = useRef()
+    const streetInput = useRef()
+    const postcodeInput = useRef()
+    const cityInput = useRef()
+
+
   const confirmHandler = (event) => {
     event.preventDefault();
   };
