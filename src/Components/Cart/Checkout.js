@@ -3,8 +3,8 @@ import classes from './Checkout.module.css';
 
 
 /*validation helpers */
-const isEmpty = val => val.trim() === ""
-const isOverFiveChars = 
+const isEmpty = val => val.trim().replace(/ /g, "") === ""
+const isOverSixChars = val => val.trim().replace(/ /g, "").length() >= 6
 
 const Checkout = (props) => {
     const nameInput = useRef()
@@ -19,6 +19,10 @@ const Checkout = (props) => {
     const enteredStreet = streetInput.current.value
     const enteredPostcode = postcodeInput.current.value 
     const enteredCity = cityInput.current.value
+
+    /*validate data */
+    const enteredNameIsValid = !isEmpty(enteredName)
+    const enteredStreetIsValid = !isEmpty(enteredStreet)
   };
 
   return (
