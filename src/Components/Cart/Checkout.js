@@ -31,7 +31,10 @@ const Checkout = (props) => {
         enteredStreetIsValid &&
         enteredCityIsValid &&
         enteredPostcodeIsValid
-    
+
+   if(formIsValid) {
+    // submit cart data
+   }     
   };
 
   return (
