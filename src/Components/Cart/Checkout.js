@@ -10,10 +10,10 @@ const Checkout = (props) => {
     /* form validity state */
     const [validState, setValidState] = useState(
         {
-            name: "",
-            street: "",
-            city: "", 
-            postcode: ""
+            name: true,
+            street: true,
+            city: true, 
+            postcode: true
         }
     )
 
@@ -30,11 +30,21 @@ const Checkout = (props) => {
         const enteredPostcode = postcodeInput.current.value 
         const enteredCity = cityInput.current.value
 
-        /*validate data */
+
+
+        /* validate data */
         const enteredNameIsValid = !isEmpty(enteredName)
         const enteredStreetIsValid = !isEmpty(enteredStreet)
         const enteredCityIsValid = !isEmpty(enteredCity)
         const enteredPostcodeIsValid = isOverSixChars(enteredPostcode)
+
+        /* set validity state */
+        setValidState({
+            name: enteredNameIsValid,
+            street: enteredStreetIsValid,
+            city: enteredCityIsValid,
+            postcode: enteredPostcodeIsValid
+        })
 
         const formIsValid = 
             enteredNameIsValid &&
