@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import classes from './Checkout.module.css';
 
 
@@ -24,6 +24,7 @@ const Checkout = (props) => {
 
 
     const confirmHandler = (event) => {
+        console.log("formSubmitted")
         event.preventDefault();
         const enteredName = nameInput.current.value 
         const enteredStreet = streetInput.current.value
@@ -56,7 +57,8 @@ const Checkout = (props) => {
     // handle error
     return
    }   
-   // subit cart data  
+   console.log(`after submit: ${validState.name}`)
+   // submit cart data  
   };
 
   return (
@@ -64,6 +66,8 @@ const Checkout = (props) => {
       <div className={classes.control}>
         <label htmlFor='name'>Your Name</label>
         <input ref={nameInput} type='text' id='name' />
+        {!validState.name && <p>Please enter a valid name</p>}
+        
       </div>
       <div className={classes.control}>
         <label htmlFor='street'>Street</label>
