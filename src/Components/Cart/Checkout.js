@@ -25,6 +25,13 @@ const Checkout = (props) => {
     const enteredStreetIsValid = !isEmpty(enteredStreet)
     const enteredCityIsValid = !isEmpty(enteredCity)
     const enteredPostcodeIsValid = isOverSixChars(enteredPostcode)
+
+    const formIsValid = 
+        enteredNameIsValid &&
+        enteredStreetIsValid &&
+        enteredCityIsValid &&
+        enteredPostcodeIsValid
+    
   };
 
   return (
