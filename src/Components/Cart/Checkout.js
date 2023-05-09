@@ -23,6 +23,8 @@ const Checkout = (props) => {
     /*validate data */
     const enteredNameIsValid = !isEmpty(enteredName)
     const enteredStreetIsValid = !isEmpty(enteredStreet)
+    const enteredCityIsValid = !isEmpty(enteredCity)
+    const enteredPostcodeIsValid = isOverSixChars(enteredPostcode)
   };
 
   return (
