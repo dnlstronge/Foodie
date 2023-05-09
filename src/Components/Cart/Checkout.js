@@ -1,6 +1,11 @@
 import { useRef } from 'react';
 import classes from './Checkout.module.css';
 
+
+/*validation helpers */
+const isEmpty = val => val.trim() === ""
+const isOverFiveChars = 
+
 const Checkout = (props) => {
     const nameInput = useRef()
     const streetInput = useRef()
