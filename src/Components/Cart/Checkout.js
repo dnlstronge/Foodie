@@ -32,9 +32,11 @@ const Checkout = (props) => {
         enteredCityIsValid &&
         enteredPostcodeIsValid
 
-   if(formIsValid) {
-    // submit cart data
-   }     
+   if(!formIsValid) {
+    // handle error
+    return
+   }   
+   // subit cart data  
   };
 
   return (
