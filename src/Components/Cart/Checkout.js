@@ -8,7 +8,14 @@ const isOverSixChars = val => val.trim().replace(/ /g, "").length() >= 6
 
 const Checkout = (props) => {
     /* form validity state */
-
+    const [validState, setValidState] = useState(
+        {
+            name: "",
+            street: "",
+            city: "", 
+            postcode: ""
+        }
+    )
 
     const nameInput = useRef()
     const streetInput = useRef()
