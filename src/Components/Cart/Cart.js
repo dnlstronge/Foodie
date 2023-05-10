@@ -26,7 +26,10 @@ const Cart = (props) => {
   const submitOrderHandler = (userData) => {
     fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
       method: "POST",
-      body: 
+      body: JSON.stringify({
+        user: userData,
+        orderItems: cartCtx.items
+      })
     })
   }
 
