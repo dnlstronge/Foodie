@@ -4,7 +4,7 @@ import classes from './Checkout.module.css';
 
 /*validation helpers */
 const isEmpty = val => val.trim().replace(/ /g, "") === ""
-const isOverSixChars = val => val.trim().replace(/ /g, "").length() >= 6
+const isOverSixChars = val => val.trim().replace(/ /g, "").length >= 6
 
 const Checkout = (props) => {
     /* form validity state */
@@ -21,7 +21,7 @@ const Checkout = (props) => {
     const streetInput = useRef()
     const postcodeInput = useRef()
     const cityInput = useRef()
-
+    //console.log(nameInput.current.value)
 
     const confirmHandler = (event) => {
         console.log("formSubmitted")
@@ -55,10 +55,14 @@ const Checkout = (props) => {
 
    if(!formIsValid) {
     // handle error
+    console.log(`form is invalid`)
     return
    }   
-   console.log(`after submit: ${validState.name}`)
-   // submit cart data  
+   
+   // submit cart data 
+   if(formIsValid) {
+    console.log("The form was validated")
+   } 
   };
 
   return (
@@ -79,7 +83,7 @@ const Checkout = (props) => {
       </div>
       <div className={classes.control}>
         <label htmlFor='city'>City</label>
-        <input ref={postcodeInput} type='text' id='city' />
+        <input ref={cityInput} type='text' id='city' />
       </div>
       <div className={classes.actions}>
         <button type='button' onClick={props.onClose}>
