@@ -11,6 +11,7 @@ const Cart = (props) => {
   const hasItems = cartCtx.items.length > 0;
   const [isCheckout, setIsCheckout] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [didSubmit, setDidSubmit] = useState(false)
 
   /* -Handlers- */
   const cartItemRemoveHandler = (id) => {
