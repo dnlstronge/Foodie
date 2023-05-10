@@ -36,8 +36,10 @@ const Cart = (props) => {
       })
     })
     setIsSubmitting(false)
+    setDidSubmit(true)
   }
 
+ 
   const cartItems = (
     <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
@@ -61,17 +63,22 @@ const Cart = (props) => {
   <button onClick={orderHandler} className={classes.button}>Order</button>}
 </div>
 
+const cartModalContent = <>
+
+{cartItems}
+<div className={classes.total}>
+  <span>Total Amount</span>
+  <span>{totalAmount}</span>
+</div>
+{isCheckout && 
+<Checkout onConfirm={submitOrderHandler} onClose={props.onClose} />}
+{!isCheckout && 
+ modalActions}
+</>
+
   return (
     <Modal onClose={props.onClose}>
-      {cartItems}
-      <div className={classes.total}>
-        <span>Total Amount</span>
-        <span>{totalAmount}</span>
-      </div>
-      {isCheckout && 
-      <Checkout onConfirm={submitOrderHandler} onClose={props.onClose} />}
-      {!isCheckout && 
-       modalActions}
+     {cartModalContent}
     </Modal>
   );
 };
