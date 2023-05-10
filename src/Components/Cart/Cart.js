@@ -76,9 +76,15 @@ const cartModalContent = <>
  modalActions}
 </>
 
+const isSubmittingModalContent = <p>Sending order data...</p>
+
+const didSubmitModalContent = <p>Your order has been sent</p>
+
   return (
     <Modal onClose={props.onClose}>
-     {cartModalContent}
+     {!isSubmitting && cartModalContent}
+     {isSubmitting && isSubmittingModalContent}
+     {didSubmit && didSubmitModalContent}
     </Modal>
   );
 };
