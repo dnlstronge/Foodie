@@ -81,7 +81,7 @@ const isSubmittingModalContent = <p>Sending order data...</p>
 const didSubmitModalContent = <>
                 <p>Your order has been sent</p>
                 <div className={classes.actions}>
-                  <button className={classes['button--alt']} onClick={props.onClose}>
+                  <button className={classes.button} onClick={props.onClose}>
                     Close
                   </button>
                 </div>
