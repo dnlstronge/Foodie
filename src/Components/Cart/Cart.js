@@ -23,7 +23,9 @@ const Cart = (props) => {
   const orderHandler = () => {
     setIsCheckout(!isCheckout)
   }
- const submitOrder = () => {}
+  const submitOrderHandler = (userData) => {
+
+  }
 
   const cartItems = (
     <ul className={classes['cart-items']}>
@@ -56,7 +58,7 @@ const Cart = (props) => {
         <span>{totalAmount}</span>
       </div>
       {isCheckout && 
-      <Checkout onClose={props.onClose} />}
+      <Checkout onConfirm={submitOrderHandler} onClose={props.onClose} />}
       {!isCheckout && 
        modalActions}
     </Modal>
