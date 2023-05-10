@@ -65,25 +65,31 @@ const Checkout = (props) => {
    } 
   };
 
+  /* Conditional Styles */
+  const nameControlClasses = `${classes.control} ${validState.name ? "" : classes.invalid}`
+  const streetControlClasses = `${classes.control} ${validState.street ? "" : classes.invalid}`
+  const postcodeControlClasses = `${classes.control} ${validState.postcode ? "" : classes.invalid}`
+  const cityControlClasses = `${classes.control} ${validState.city ? "" : classes.invalid}`
+
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
-      <div className={`${classes.control} ${validState.name ? "" : classes.invalid}`}>
+      <div className={nameControlClasses}>
         <label htmlFor='name'>Your Name</label>
         <input ref={nameInput} type='text' id='name' />
         {!validState.name && <p>Please enter a valid name</p>}
         
       </div>
-      <div className={`${classes.control} ${validState.street ? "" : classes.invalid}`}>
+      <div className={streetControlClasses}>
         <label htmlFor='street'>Street</label>
         <input ref={streetInput} type='text' id='street' />
         {!validState.street && <p>Please enter a valid street</p>}
       </div>
-      <div className={`${classes.control} ${validState.postcode ? "" : classes.invalid}`}>
+      <div className={postcodeControlClasses}>
         <label htmlFor='postal'>Postal Code</label>
         <input ref={postcodeInput} type='text' id='postal' />
         {!validState.postcode && <p>Please enter a valid postcode</p>}
       </div>
-      <div className={`${classes.control} ${validState.city ? "" : classes.invalid}`}>
+      <div className={cityControlClasses}>
         <label htmlFor='city'>City</label>
         <input ref={cityInput} type='text' id='city' />
         {!validState.city && <p>Please enter a valid city</p>}
