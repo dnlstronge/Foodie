@@ -55,7 +55,7 @@ const Checkout = (props) => {
 
    if(!formIsValid) {
     // handle error
-    console.log(`form is invalid`)
+    // console.log(`form is invalid`)
     return
    }   
    
@@ -76,14 +76,17 @@ const Checkout = (props) => {
       <div className={classes.control}>
         <label htmlFor='street'>Street</label>
         <input ref={streetInput} type='text' id='street' />
+        {!validState.street && <p>Please enter a valid street</p>}
       </div>
       <div className={classes.control}>
         <label htmlFor='postal'>Postal Code</label>
         <input ref={postcodeInput} type='text' id='postal' />
+        {!validState.postcode && <p>Please enter a valid postcode</p>}
       </div>
       <div className={classes.control}>
         <label htmlFor='city'>City</label>
         <input ref={cityInput} type='text' id='city' />
+        {!validState.city && <p>Please enter a valid city</p>}
       </div>
       <div className={classes.actions}>
         <button type='button' onClick={props.onClose}>
