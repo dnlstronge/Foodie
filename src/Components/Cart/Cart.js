@@ -82,9 +82,9 @@ const didSubmitModalContent = <p>Your order has been sent</p>
 
   return (
     <Modal onClose={props.onClose}>
-     {!isSubmitting && cartModalContent}
+     {!isSubmitting && !didSubmit && cartModalContent}
      {isSubmitting && isSubmittingModalContent}
-     {didSubmit && didSubmitModalContent}
+     {!isSubmitting && didSubmit && didSubmitModalContent}
     </Modal>
   );
 };
