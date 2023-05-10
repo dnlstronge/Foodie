@@ -34,6 +34,7 @@ const Cart = (props) => {
         orderItems: cartCtx.items
       })
     })
+    setIsSubmitting(false)
   }
 
   const cartItems = (
