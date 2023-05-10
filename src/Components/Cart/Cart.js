@@ -24,8 +24,10 @@ const Cart = (props) => {
   const orderHandler = () => {
     setIsCheckout(!isCheckout)
   }
-  const submitOrderHandler = (userData) => {
-    fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
+  const submitOrderHandler = async(userData) => {
+    setIsSubmitting(true)
+    /*could add error handling and check status etc */
+    await fetch("https://connectdb-1efa3-default-rtdb.europe-west1.firebasedatabase.app/orders.json", {
       method: "POST",
       body: JSON.stringify({
         user: userData,
