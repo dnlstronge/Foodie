@@ -10,6 +10,7 @@ const Cart = (props) => {
   const totalAmount = `£${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
   const [isCheckout, setIsCheckout] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   /* -Handlers- */
   const cartItemRemoveHandler = (id) => {
