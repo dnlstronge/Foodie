@@ -61,7 +61,12 @@ const Checkout = (props) => {
    
    // submit cart data 
    if(formIsValid) {
-    console.log("The form was validated")
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      postcode: enteredPostcode,
+      city: enteredCity
+    })
    } 
   };
 
